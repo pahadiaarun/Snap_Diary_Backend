@@ -21,11 +21,10 @@ app.use('/user', userRoutes)
 app.get("/", (req, res) => {
   res.send("Hello to memories API");
 });
+const PORT = process.env.PORT || 5000;
 
-const PORT = 5000;
-const CONNECTION_URL = "mongodb+srv://pahadiaarun:arun1234@cluster0.ftudngy.mongodb.net/";
 mongoose
-  .connect(CONNECTION_URL, {
+  .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
